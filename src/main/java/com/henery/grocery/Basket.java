@@ -26,7 +26,7 @@ public class Basket {
     }
 
     private double calculateBreadDiscount(int tinsOfSoup, LocalDate orderDate) {
-        return (orderDate.equals(TODAY) && tinsOfSoup > 1) ? BREAD_UNIT_PRICE / 2 : 0.0;
+        return (orderDate.isAfter(TODAY.minusDays(1)) && orderDate.isBefore(TODAY.plusDays(7)) && tinsOfSoup > 1) ? BREAD_UNIT_PRICE / 2 : 0.0;
     }
 
     private double calculateOriginalTotalPrice(int tinsOfSoup, int loavesOfBread, int numberOfApples, int bottleOfMilk) {
