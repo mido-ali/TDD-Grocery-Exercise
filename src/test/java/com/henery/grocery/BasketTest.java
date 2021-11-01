@@ -34,6 +34,6 @@ public class BasketTest {
     }
     @Test
     public void coastOfBasketContainingThreeApplesTwoTinsOfSoupLoafOfBreadBoughtInFiveDays(){
-        Assert.assertEquals(1.97, new Basket().totalPrice(2, 1,3,0, TODAY.plusDays(5)),DELTA);
+        Assert.assertEquals(1.97, basket.totalPrice(2, 1,3,0, TODAY.plusDays(5)),DELTA);
     }
 }
