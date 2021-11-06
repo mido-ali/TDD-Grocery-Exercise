@@ -14,9 +14,9 @@ public class Basket {
     private static final double APPLE_UNIT_PRICE = 0.10;
     private static final double MILK_UNIT_PRICE = 1.30;
 
-    public double totalPrice(int tinsOfSoup, int loavesOfBread, int numberOfApples, int bottleOfMilk, LocalDate orderDate) {
+    public double totalPrice(int tinsOfSoup, int loavesOfBread, int numberOfApples, int bottlesOfMilk, LocalDate orderDate) {
         double discountValue = calculateBreadDiscount(tinsOfSoup, orderDate) + calculateAppleDiscount(numberOfApples, orderDate);
-        double originalTotalPrice = calculateOriginalTotalPrice(tinsOfSoup, loavesOfBread, numberOfApples, bottleOfMilk);
+        double originalTotalPrice = calculateOriginalTotalPrice(tinsOfSoup, loavesOfBread, numberOfApples, bottlesOfMilk);
         return originalTotalPrice - discountValue;
     }
 
