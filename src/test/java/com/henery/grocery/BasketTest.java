@@ -25,6 +25,30 @@ public class BasketTest {
     }
 
     @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtYesterday() {
+        Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(1)), DELTA);
+
+    }
+
+    @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtTwoDaysAgo() {
+        Assert.assertEquals(3.55, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(2)), DELTA);
+
+    }
+
+    @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtInSixDays() {
+        Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.plusDays(6)), DELTA);
+
+    }
+
+    @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtInSevenDaysFromNow() {
+        Assert.assertEquals(3.55, basket.totalPrice(3, 2, 0, 0, TODAY.plusDays(7)), DELTA);
+
+    }
+
+    @Test
     public void coastOfBasketContainingSixApplesOneBottleOfMilkBoughtToday() {
         Assert.assertEquals(1.90, basket.totalPrice(0, 0, 6, 1, TODAY), DELTA);
     }
@@ -55,26 +79,7 @@ public class BasketTest {
     }
 
     @Test
-    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtYesterday() {
-        Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(1)), DELTA);
-
-    }
-
-    @Test
-    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtTwoDaysAgo() {
-        Assert.assertEquals(3.55, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(2)), DELTA);
-
-    }
-
-    @Test
-    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtInSixDays() {
-        Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.plusDays(6)), DELTA);
-
-    }
-
-    @Test
-    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtInSevenDaysFromNow() {
-        Assert.assertEquals(3.55, basket.totalPrice(3, 2, 0, 0, TODAY.plusDays(7)), DELTA);
-
+    public void coastOfBasketContainingThreeApplesTwoTinsOfSoupLoafOfBreadBoughtToday() {
+        Assert.assertEquals(2.0, basket.totalPrice(2, 1, 3, 0, TODAY), DELTA);
     }
 }
