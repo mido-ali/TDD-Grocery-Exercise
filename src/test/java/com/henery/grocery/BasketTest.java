@@ -87,4 +87,24 @@ public class BasketTest {
     public void coastOfEmptyBasket() {
         Assert.assertEquals(0.0, basket.totalPrice(0, 0, 0, 0, TODAY), DELTA);
     }
+
+    @Test
+    public void coastOfBasketContainingOneTinOfSoupBoughtToday() {
+        Assert.assertEquals(0.65, basket.totalPrice(1, 0, 0, 0, TODAY), DELTA);
+    }
+
+    @Test
+    public void coastOfBasketContainingOneLoafOfBreadBoughtToday() {
+        Assert.assertEquals(0.80, basket.totalPrice(0, 1, 0, 0, TODAY), DELTA);
+    }
+
+    @Test
+    public void coastOfBasketContainingOneAppleBoughtToday() {
+        Assert.assertEquals(0.10, basket.totalPrice(0, 0, 1, 0, TODAY), DELTA);
+    }
+
+    @Test
+    public void coastOfBasketContainingOneBottleOfMilkBoughtToday() {
+        Assert.assertEquals(1.30, basket.totalPrice(0, 0, 0, 1, TODAY), DELTA);
+    }
 }
