@@ -43,4 +43,16 @@ public class BasketTest {
         Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(1)), DELTA);
 
     }
+
+    @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtTwoDaysAgo() {
+        Assert.assertEquals(3.55, basket.totalPrice(3, 2, 0, 0, TODAY.minusDays(2)), DELTA);
+
+    }
+
+    @Test
+    public void coastOfBasketContainingThreeTinsOfSoupTwoLoavesOfBreadBoughtInSixDays() {
+        Assert.assertEquals(3.15, basket.totalPrice(3, 2, 0, 0, TODAY.plusDays(6)), DELTA);
+
+    }
 }

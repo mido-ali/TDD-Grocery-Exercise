@@ -5,8 +5,8 @@ import java.time.temporal.TemporalAdjusters;
 
 public class Discount {
     static final LocalDate TODAY = LocalDate.now();
-    static final LocalDate NEXT_WEEK = TODAY.plusDays(7);
     static final LocalDate BREAD_DISCOUNT_START_DATE = TODAY.minusDays(1);
+    static final LocalDate BREAD_DISCOUNT_END_DATE = BREAD_DISCOUNT_START_DATE.plusDays(7);
     static final LocalDate APPLE_DISCOUNT_END_DATE = TODAY.plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
     static final LocalDate APPLE_DISCOUNT_START_DATE = TODAY.plusDays(3);
 
@@ -27,6 +27,7 @@ public class Discount {
     }
 
     boolean isBreadDiscountEligible(int tinsOfSoup, LocalDate orderDate) {
-        return (orderDate.isAfter(BREAD_DISCOUNT_START_DATE) || orderDate.equals(BREAD_DISCOUNT_START_DATE)) && orderDate.isBefore(NEXT_WEEK) && tinsOfSoup > 1;
+        return (orderDate.isAfter(BREAD_DISCOUNT_START_DATE) || orderDate.equals(BREAD_DISCOUNT_START_DATE)) &&
+                (orderDate.isBefore(BREAD_DISCOUNT_END_DATE) || orderDate.equals(BREAD_DISCOUNT_END_DATE)) && tinsOfSoup > 1;
     }
 }
