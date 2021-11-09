@@ -19,7 +19,7 @@ public class Discount {
     }
 
     boolean isAppleDiscountEligible(LocalDate orderDate) {
-        return orderDate.isAfter(APPLE_DISCOUNT_START_DATE) && orderDate.isBefore(APPLE_DISCOUNT_END_DATE);
+        return (orderDate.isAfter(APPLE_DISCOUNT_START_DATE) || orderDate.equals(APPLE_DISCOUNT_START_DATE)) && orderDate.isBefore(APPLE_DISCOUNT_END_DATE);
     }
 
     double calculateBreadDiscount(int tinsOfSoup, LocalDate orderDate) {
